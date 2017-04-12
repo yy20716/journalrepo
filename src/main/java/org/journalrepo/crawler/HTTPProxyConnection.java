@@ -21,6 +21,9 @@ public class HTTPProxyConnection {
 	static Logger logger = Logger.getLogger(HTTPProxyConnection.class.getName());
 	private static String selProxyAddrSql = "SELECT idProxy, address, alive FROM HTTPProxy WHERE alive = :alive";
 
+	/**
+	 * TODO: it would be desirable if we can make these parameters as configurable using *.ini or *.xml files 
+	 */
 	private static int retryMaxCnt = 50;
 	private static int socketTimeout = 10 * 1000;
 	private static int connectionTimeout = 10 * 1000;
@@ -57,6 +60,9 @@ public class HTTPProxyConnection {
 		retryCnt = 0;
 
 		while (retryCnt < retryMaxCnt) {
+			/**
+			 * TODO: revise codes so that user-agents can be also randomly selected.
+			 */
 			CloseableHttpClient httpclient = HttpClients.custom()
 					.setUserAgent("Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)")
 					.build();
@@ -110,7 +116,7 @@ public class HTTPProxyConnection {
 			long ransec = (long)(Math.random() * 2000);					
 			Thread.sleep(ransec);
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			logger.error("Exception occured while trying to wait for sleep.", e);
 		}
 	}
 }

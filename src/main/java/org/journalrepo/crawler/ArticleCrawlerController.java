@@ -129,7 +129,7 @@ public class ArticleCrawlerController {
 
 			dbcon.close();
 		} catch (Exception e) {
-
+			logger.error("Exception occured while emptying tables.", e);
 		}
 	}
 }
