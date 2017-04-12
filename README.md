@@ -1,5 +1,7 @@
 # JournalRepo
-A simple crawler that automatically collects news articles from Daum news service (http://media.daum.net) and stores them in local databases. This crawleremploys [JSoup](https://jsoup.org) for parsing crawled html files and thread-pooling to parallize the collection process of news articles. In addition, the crawler supports an automatic extraction of the names of publishers and reporters, so that preliminary statistics on articles can be collected as well.
+A simple crawler that automatically collects news articles from Daum news service (http://media.daum.net) and stores them in local databases. This crawler employs [JSoup](https://jsoup.org) for parsing crawled html files and thread-pooling techinques to parallize the collection process of news articles. In addition, the crawler supports an automatic extraction of the names of publishers and reporters, so that preliminary statistics on articles can be collected as well.
+
+Please note that the automatic extraction feature is still in the preliminary stage, thus sometimes extracted names contain irrelevant strings or simply it is not working. We are currently working on that feature to improve the rate of the extractions.
 
 # QuickStart
 1. Running `mvn package` does a compile and creates the target directory, including a jar as follows.
