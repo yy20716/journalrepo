@@ -101,7 +101,7 @@ public class ArticleCrawlerController {
 	}
 
 	private static void truncateTables() {
-		Sql2o sql2o = new Sql2o("jdbc:mysql://localhost:3306/JournalRepo?characterEncoding=utf8", "journalrepo", "journal0306");
+		Sql2o sql2o = new Sql2o("jdbc:mysql://localhost:3306/JournalRepo?characterEncoding=utf8&serverTimezone=UTC", "journalrepo", "journal0306");
 		org.sql2o.Connection dbcon = null;
 
 		try {
